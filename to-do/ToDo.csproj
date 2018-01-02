@@ -9,7 +9,7 @@
       <CustomCommands>
         <Command>
           <type>BeforeBuild</type>
-          <command>gulp sass</command>
+          <command>gulp build</command>
           <workingdir>${ProjectDir}</workingdir>
         </Command>
       </CustomCommands>
