@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<ToDo.Models.Item>
 
-@{ Layout = "_Layout"; }
+@{
+    ViewData["Title"] = "ToDoList - Home";
+    Layout = "_Layout";
+}
 
 <h2>Welcome to the To Do List!</h2>
 <p>@Html.ActionLink("Task list", "Index", "Items")</p>
