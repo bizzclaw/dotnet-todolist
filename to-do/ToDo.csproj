@@ -23,4 +23,7 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="package.json" />
+  </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ToDo.Models;
 
@@ -16,8 +17,7 @@ namespace ToDo.Controllers
 
 		public IActionResult Index()
         {
-            List<Item> model = db.Items.ToList();
-            return View(model);
+            return View(db.Items.Include(ItemsController => ItemsController.Category).ToList());
         }
 
 		public IActionResult Details(int id)
@@ -28,6 +28,7 @@ namespace ToDo.Controllers
 
 		public IActionResult Create()
 		{
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
 			return View();
 		}
 
@@ -42,6 +43,7 @@ namespace ToDo.Controllers
 		public IActionResult Edit(int id)
 		{
 			var model = db.Items.FirstOrDefault(items => items.ItemId == id);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
 			return View(model);
 		}
 
