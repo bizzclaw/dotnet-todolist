@@ -4,6 +4,17 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>BeforeBuild</type>
+          <command>gulp sass</command>
+          <workingdir>${ProjectDir}</workingdir>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
     <Folder Include="Views\" />
@@ -13,6 +24,7 @@
     <Folder Include="Views\Items\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="Views\Shared\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +35,4 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="package.json" />
-  </ItemGroup>
 </Project>
